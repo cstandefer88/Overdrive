@@ -3,19 +3,20 @@ const Sequelize = require("sequelize");
 
 //Setting up the config
 const sequelize = new Sequelize('overdrive', 'cstandefer', 'TestyTester', {
-    host: "localhost",
+    host: 'overdrivechallenge.cugmbu9gwo4j.us-east-2.rds.amazonaws.com',
     port: 3306,
     dialect: 'mysql'
 });
 
 //Checking connection status
-sequelize.authenticate().complete((err) => {
-    if (err) {
-        console.log('There is connection ERROR');
-    } else {
-        console.log('Connection has been established successfully');
-    }
-});
+sequelize
+  .authenticate()
+  .then(() => {
+    console.log('Connection has been established successfully.');
+  })
+  .catch(err => {
+    console.error('Unable to connect to the database:', err);
+  });
 
 //Create Item Table Structure
 const Item = sequelize.define('item', {
@@ -34,10 +35,12 @@ const Item = sequelize.define('item', {
 });
 
 //Applying Item Table to database
-sequelize.sync({force:true}).complete((err) => {
-    if(err){
-        console.log('An error occur while creating table');
-    }else{
-        console.log('Item table created successfully');
-    }
+Item.sync({force: true}).then(() => {
+  // Table created
+  return Item.create({
+    sku: 'asdfas',
+    name: 'ljk;lkj',
+    cost: '1234.00',
+    freight: '123.00'
+  });
 });

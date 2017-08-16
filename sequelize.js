@@ -1,6 +1,6 @@
 const Sequelize = require('sequelize');
 const sequelize = new Sequelize('overdrive', 'cstandefer', 'TestyTester', {
-    host: "localhost",
+    host: 'overdrivechallenge.cugmbu9gwo4j.us-east-2.rds.amazonaws.com',
     port: 3306,
     dialect: 'mysql'
 });
