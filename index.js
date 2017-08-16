@@ -1,14 +1,22 @@
 const express = require('express');
-const mongoose = require('mongoose');
-const keys = require('./config/keys');
+const morgan = require('morgan');
+const bodyParser = require('body-parser');
 const mysql = require('mysql');
 const Sequelize = require('sequelize');
 
 require('./models/Item');
 
-mongoose.connect(keys.mongoURI);
-
 const app = express();
+
+app.use(morgan('combined'));
+
+const router = express.Router();
+app.use('/api', router);
+
+router.use((req, res, next) => {
+    console.log('Slowly but surely the mojo is coming back.');
+    next();
+});
 
 require('./routes/itemRoutes')(app);
 
