@@ -4,6 +4,9 @@ class Inventory extends Component {
   render() {
     return (
       <div>
+        <div className="row">
+          <h3 className="center-align">Inventory</h3>
+        </div>
         <table className="striped">
           <thead>
             <tr>
