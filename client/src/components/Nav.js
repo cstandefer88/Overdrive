@@ -5,13 +5,13 @@ class Nav extends Component {
     return (
       <nav>
         <div className="nav-wrapper">
-          <a className="left brand-logo">
+          <a href="/" className="left brand-logo">
             Overdrive Challenge
           </a>
           <ul className="right hide-on-med-and-down">
-            <li><a href="#">Inventory</a></li>
-            <li><a href="#">Add New Item</a></li>
-            <li><a href="#">Profit Calculator</a></li>
+            <li><a href="/product">Inventory</a></li>
+            <li><a href="/product/new">Add New Item</a></li>
+            <li><a href="/product/calculator">Profit Calculator</a></li>
           </ul>
         </div>
       </nav>
