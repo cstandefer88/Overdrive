@@ -4,11 +4,11 @@ import { connect } from 'react-redux';
 import * as actions from '../actions';
 
 import Nav from './Nav';
-const Inventory = () => <h2>Inventory</h2>;
-const ItemNew = () => <h2>Add Item</h2>;
-const ItemEdit = () => <h2>Edit Item</h2>;
-const Calculator = () => <h2>Calculator</h2>;
-const Landing = () => <h2>Landing</h2>;
+import Landing from './Landing';
+import Inventory from './Inventory';
+import ItemNew from './ItemNew';
+import ItemEdit from './ItemEdit';
+import Calculator from './Calculator';
 
 class App extends Component {
   componentDidMount() {
